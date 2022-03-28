@@ -14,7 +14,7 @@ class ApiRequestController {
     }
 
     public sendRequest(request:IRequest){
-
+        
     }
 }
 
