@@ -2,7 +2,7 @@ import { IAuthorization } from '../interfaces/IAuthorization';
 import { IRequest } from '../interfaces/IRequest';
 import { User } from './User';
 
-export class GetRequest implements IRequest, IAuthorization {
+export class GetRequest implements IRequest {
     readonly headers: any;
     readonly requestApi: string;
     readonly requestType: string;
@@ -12,13 +12,9 @@ export class GetRequest implements IRequest, IAuthorization {
         this.requestApi = request.requestApi;
         this.requestType = 'GET';
     }
-
-    isAuthorized(user: User): boolean {
-        throw new Error('Method not implemented.');
-    }
 }
 
-export class PutRequest implements IRequest, IAuthorization {
+export class PutRequest implements IRequest {
     readonly headers: any;
     readonly requestApi: string;
     readonly payLoad?: any;
@@ -29,9 +25,5 @@ export class PutRequest implements IRequest, IAuthorization {
         this.requestApi = request.requestApi;
         this.payLoad = request.payLoad;
         this.requestType = 'PUT';
-    }
-
-    isAuthorized(user: User): boolean {
-        throw new Error('Method not implemented.');
     }
 }

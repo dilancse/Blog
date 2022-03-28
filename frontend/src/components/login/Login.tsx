@@ -6,8 +6,11 @@ function Login() {
     const [userName, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
-    const get = new GetRequest({headers:'', requestApi:''});
-    apiRequestController.sendRequest(get);
+    async function sendLoginRequest() {
+        const get = new GetRequest({ headers: '', requestApi: '' });
+        const response = await apiRequestController.sendRequest(get);
+        console.log(response);
+    }
 
     return (
         <div>
@@ -29,6 +32,13 @@ function Login() {
                     setPassword(e.target.value);
                 }}
             />
+            <button
+                onClick={(e) => {
+                    sendLoginRequest();
+                }}
+            >
+                Login
+            </button>
         </div>
     );
 }
