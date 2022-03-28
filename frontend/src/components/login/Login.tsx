@@ -7,7 +7,7 @@ function Login() {
     const [password, setPassword] = useState<string>('');
 
     async function sendLoginRequest() {
-        const get = new GetRequest({ headers: '', requestApi: '' });
+        const get = new GetRequest({ headers: '', requestApi: 'http://localhost:5000/api/user' });
         const response = await apiRequestController.sendRequest(get);
         console.log(response);
     }
